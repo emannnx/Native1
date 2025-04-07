@@ -7,6 +7,9 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Platform,
+  StatusBar,
+  Dimensions,
 } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -23,31 +26,33 @@ const Welcome = () => {
   ];
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <SafeAreaView style={styles.container}>
+   <SafeAreaView style={styles.scrollContainer}>
+     <ScrollView contentContainerStyle={styles.container}>
         {/* header  */}
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.openDrawer()}>
+          <TouchableOpacity onPress={() => navigation.openDrawer()} style={{height:'100%',width: '20%',justifyContent: 'center',}}>
             <Image source={require("../assets/Group.png")} />
           </TouchableOpacity>
-          <Image
+         <TouchableOpacity onPress={() => navigation.navigate("OrderList")} style={{height:'100%',width:'25%',justifyContent:'center'}}>
+         <Image
             source={require("../assets/Group 25.png")}
-            style={{ height: "80%", width: "25%" }}
+            style={{ height: "80%", width: "100%" }}
           />
+         </TouchableOpacity>
         </View>
-        <View style={{ width: "70%", height: "auto", fontSize: 27 }}>
-          <Text>Hello Tony,</Text>
-          <Text style={{ fontWeight: "bold" }}>
+        
+          <Text style={{ fontSize: 20,marginBottom:'3%',}}>Hello Tony,<Text style={{ fontWeight: "bold" }}>
             {" "}
-            What fruit salad combo do you want today?
-          </Text>
-        </View>
+            What fruit salad {"\n"} combo do you want today?
+          </Text></Text>
+          
+        
 
         {/* body */}
         <View
           style={{
             width: "100%",
-            height: "10%",
+            height: "8%",
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
@@ -86,6 +91,8 @@ const Welcome = () => {
             width: "80%",
             height: "auto",
             fontSize: 30,
+            marginTop:'3%',
+            marginBottom:'1%',
             fontWeight: "bold",
           }}
         >
@@ -119,7 +126,7 @@ const Welcome = () => {
             }}
             onPress={() => navigation.navigate("Order")}
           >
-            <View style={{ width: "90%", height: "50%", flexDirection: "row" }}>
+            <View style={{ width: "90%", height: "40%", flexDirection: "row" }}>
               <Image
                 source={require("../assets/honey.png")}
                 style={{ height: "100%", width: "80%", resizeMode: "contain" }}
@@ -182,7 +189,7 @@ const Welcome = () => {
             }}
             onPress={() => navigation.navigate("Order")}
           >
-            <View style={{ width: "90%", height: "50%", flexDirection: "row" }}>
+            <View style={{ width: "90%", height: "40%", flexDirection: "row" }}>
               <Image
                 source={require("../assets/honey.png")}
                 style={{ height: "100%", width: "80%", resizeMode: "contain" }}
@@ -251,52 +258,6 @@ const Welcome = () => {
           </Text>
         </View>
 
-        {/* <ScrollView 
-  horizontal={true}
-  showsHorizontalScrollIndicator={false} 
-  contentContainerStyle={{ flexDirection: 'row', gap: 12, paddingHorizontal: 12 }}
->
-  {items.map((item) => (
-    <TouchableOpacity 
-      key={item.id}
-      onPress={() => navigation.navigate("Order")}
-      style={{
-        width: "47%", 
-        height: '90%', 
-        justifyContent: 'space-around',
-        alignItems: 'center', 
-        borderColor: 'lightgray', 
-        borderWidth: 1,
-        backgroundColor: item.backgroundColor, 
-        shadowColor: '#D3D3D3',
-        shadowOffset: { width: 0, height: 4 }, 
-        shadowOpacity: 0.2, 
-        shadowRadius: 6, 
-        elevation: 4, 
-        borderRadius: 12
-      }}
-    >
-      <View style={{ width: '90%', height: '50%', flexDirection: 'row' }}>
-        <Image 
-          source={require("../assets/honey.png")}  
-          style={{ height: '100%', width: '80%', resizeMode: 'contain' }} 
-        />
-        <Image source={require("../assets/Vector.png")} />
-      </View>
-      <View style={{ width: '90%', height: '40%', justifyContent: 'space-around' }}>
-        <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Honey Lime Combo</Text>
-        <View style={{ width: '100%', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
-          <View style={{ flexDirection: 'row', width: '40%', height: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
-            <Image source={require("../assets/Group(7).png")} />
-            <Text style={{ fontSize: 14, color: '#F08626' }}>2,000</Text>
-          </View>
-          <Image source={require("../assets/Group 10.png")} />
-        </View>
-      </View>
-    </TouchableOpacity>
-  ))}
-</ScrollView> */}
-
         <ScrollView
           horizontal={true}
           showsHorizontalScrollIndicator={false}
@@ -331,8 +292,10 @@ const Welcome = () => {
             </TouchableOpacity>
           ))}
         </ScrollView>
-      </SafeAreaView>
+        
+       
     </ScrollView>
+   </SafeAreaView>
   );
 };
 
@@ -346,11 +309,16 @@ const styles = StyleSheet.create({
     margin: 0,
     backgroundColor: "white",
     // flexDirection: 'column-reverse',
+    ...Platform.select({
+      android:{paddingTop:StatusBar.currentHeight}
+    })
+
   },
   container: {
-    // height: "90%",
-    backgroundColor: "red",
-    // width: "90%",
+    // Height: auto,
+    flex:1,
+    // backgroundColor: "red",
+    width: "90%",
   },
   header: {
     // backgroundColor: 'blue',
@@ -359,6 +327,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     flexDirection: "row",
+    marginBottom: '3%',
+   
   },
   firstinput: {
     width: "80%",
@@ -370,7 +340,7 @@ const styles = StyleSheet.create({
     outlineWidth: 0,
     outlineColor: "#F3F4F9",
     alignContent: "center",
-    fontSize: 15,
+    fontSize: 17,
   },
   // horizontalScroll: {
   //   width: '100%',
@@ -404,7 +374,7 @@ const styles = StyleSheet.create({
   },
   comboImageContainer: {
     width: "90%",
-    height: "50%",
+    height: "40%",
     flexDirection: "row",
   },
   comboImage: {

@@ -65,12 +65,12 @@ const Order = () => {
             </View>
           </View>
 
-          <Text style={styles.sectionHeader}>One Pack Contains:</Text>
+          <View style={styles.sectionHeader}><Text style={{ fontSize: 24,fontWeight: "600",borderBottomWidth: 2,color:'#27214D',borderBottomColor: "#FFA451",width:'50%', }}>One Pack Contains:</Text></View>
           <Text style={styles.description}>
             Red Quinoa, Lime, Honey, Blueberries, Strawberries, Mango, Fresh
             mint.
           </Text>
-          <Text style={styles.description}>
+          <Text style={{color:'black',width:'90%',borderBottomColor: 'lightgray',borderBottomWidth: 1, paddingBottom: '4%'}}>
             If you are looking for a new fruit salad to eat today, quinoa is the
             perfect brunch for you.
           </Text>
@@ -85,7 +85,7 @@ const Order = () => {
               onPress={() => navigation.navigate("OrderList")}
               style={styles.checkoutButton}
             >
-              <Text style={styles.checkoutText}>Go back</Text>
+              <Text style={styles.checkoutText}>Add to basket</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -155,8 +155,9 @@ const styles = StyleSheet.create({
   },
   productTitle: {
     width: "90%",
-    fontSize: 24,
+    fontSize: 27,
     fontWeight: "bold",
+    color:'#27214D'
   },
   quantityPriceContainer: {
     width: "90%",
@@ -195,15 +196,18 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     width: "90%",
-    fontSize: 20,
-    fontWeight: "600",
-    borderBottomWidth: 2,
-    borderBottomColor: "#FFA451",
+    // backgroundColor:'red',
+   
   },
   description: {
     width: "90%",
-    fontSize: 16,
-    fontWeight: "600",
+    // backgroundColor:'green',
+    fontSize: 18,
+    fontWeight: "400",
+    color:'#27214D',
+    borderBottomColor: 'lightgray',
+    borderBottomWidth: 1, 
+    paddingBottom: '4%'
   },
   footer: {
     width: "90%",

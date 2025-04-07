@@ -16,11 +16,11 @@ const StartUp = () => {
         </View>
          <View style={styles.wrapper2_}>
          <View style={styles.wrapper2}>
-          <Text style={{fontSize:20, color:'black', fontWeight:'bold'}}>Get The Frehest Fruit Salad Combo</Text>
-          <Text style={{color:'#5D577E'}}>We deliver the best and freshest fruit salad in town. Order for a combo today!!!</Text>
+          <Text style={{ color:'black',fontSize:23,width:'100%',  fontWeight:'bold',marginBottom:'3%',}}>Get The Frehest Fruit Salad Combo</Text>
+          <Text style={{color:'#5D577E',fontSize:20,}}>We deliver the best and freshest fruit salad in town. Order for a combo today!!!</Text>
         </View>
         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Register")}>
-            <Text style={{fontSize: 20, color: 'white', fontWeight: 'bold', padding: 10 }}>Let's Continue</Text>
+            <Text style={{fontSize: 25, color: 'white', fontWeight: 'bold',  }}>Let's Continue</Text>
   
         </TouchableOpacity>
          </View>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   wrapper2:{
     width: '80%',
-    height: '30%',
+    height: 'auto',
     // backgroundColor: 'blue',
   },
   wrapper2_ :{

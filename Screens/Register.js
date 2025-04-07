@@ -43,7 +43,7 @@ const Register = () => {
           <View style={styles.wrapper2_}>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 24,
                 color: "black",
                 width: "80%",
                 fontWeight: "bold",
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     // justifyContent: 'space-around',
-    backgroundColor: "blue",
+    // backgroundColor: "blue",
   },
   wrapper1: {
     width: "100%",

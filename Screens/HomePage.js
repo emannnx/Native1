@@ -10,12 +10,12 @@ const HomePage = () => {
   const Drawer = createDrawerNavigator();
   const DrawerNavigator = () => (
     <Drawer.Navigator
-      initialRouteName="Welcome"
+      initialRouteName="Home"
       screenOptions={{ headerShown: false }}
     >
-      <Drawer.Screen name="Welcome" component={Welcome} />
-      <Drawer.Screen name="Register" component={Register} />
-      <Drawer.Screen name="Home" component={HomePage} />
+      <Drawer.Screen name="Home" component={Welcome} />
+      {/* <Drawer.Screen name="Register" component={Register} /> */}
+      {/* <Drawer.Screen name="Home" component={HomePage} /> */}
       <Drawer.Screen name="Order" component={Order} />
       <Drawer.Screen name="OrderList" component={OrderList} />
     </Drawer.Navigator>

@@ -10,6 +10,7 @@ import Register from "./Screens/Register";
 import HomePage from "./Screens/HomePage";
 import Order from "./Screens/Order";
 import OrderList from "./Screens/OrderList";
+import OrderComplete from "./Screens/OrderComplete";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const StackNavigator = () => (
     <Stack.Screen name="Home" component={HomePage} />
     <Stack.Screen name="Order" component={Order} />
     <Stack.Screen name="OrderList" component={OrderList} />
+    <Stack.Screen name="OrderComplete" component={OrderComplete} />
   </Stack.Navigator>
 );
 
